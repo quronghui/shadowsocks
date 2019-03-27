@@ -1,0 +1,242 @@
+{
+  "version": "4.1.3.1",
+  "configs": [
+    {
+      "server": "us.ssnode.fun",
+      "server_port": 44671,
+      "password": "CYnN5bro",
+      "method": "chacha20",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "US 01",
+      "timeout": 5
+    },
+    {
+      "server": "us2.ssnode.fun",
+      "server_port": 44671,
+      "password": "CYnN5bro",
+      "method": "chacha20",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "US 02",
+      "timeout": 5
+    },
+    {
+      "server": "sg.ssnode.fun",
+      "server_port": 44671,
+      "password": "CYnN5bro",
+      "method": "chacha20",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "Singapore",
+      "timeout": 5
+    },
+    {
+      "server": "hkt.xn--9kq677j3ki.app",
+      "server_port": 18723,
+      "password": "nW84OE",
+      "method": "chacha20",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "[萌新节点]LCY-香港HKT1000M-NF",
+      "timeout": 5
+    },
+    {
+      "server": "ijj1.xn--9kq677j3ki.app",
+      "server_port": 18723,
+      "password": "nW84OE",
+      "method": "chacha20",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "[萌新节点]LCY-日本ijj线路-NF",
+      "timeout": 5
+    },
+    {
+      "server": "freeus.zsdcloud.xyz",
+      "server_port": 35460,
+      "password": "C3lpRW",
+      "method": "rc4-md5",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "美国 FREE - 1Gbps",
+      "timeout": 5
+    },
+    {
+      "server": "comn.us1.kxsw.xyz",
+      "server_port": 35902,
+      "password": "dXD2Rk",
+      "method": "rc4-md5",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "公益节点-美国1",
+      "timeout": 5
+    },
+    {
+      "server": "eu2.shadowboost.net",
+      "server_port": 50766,
+      "password": "3Qmcsm",
+      "method": "chacha20",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "俄罗斯 莫斯科VUP节点 - 1000M带宽",
+      "timeout": 5
+    },
+    {
+      "server": "eu3.shadowboost.net",
+      "server_port": 50766,
+      "password": "3Qmcsm",
+      "method": "chacha20",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "英国 伦敦VUP节点 - 1000M带宽",
+      "timeout": 5
+    },
+    {
+      "server": "103.114.163.91",
+      "server_port": 35660,
+      "password": "mYV9xbo1t7",
+      "method": "aes-256-cfb",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "加州YT",
+      "timeout": 5
+    },
+    {
+      "server": "us2.hombo125.tk",
+      "server_port": 26430,
+      "password": "wBiOl1",
+      "method": "rc4-md5",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "美国 高速节点1GB带宽 - www.520ssr.tk",
+      "timeout": 5
+    },
+    {
+      "server": "103.79.77.165",
+      "server_port": 50075,
+      "password": "Lhty5R",
+      "method": "aes-128-ctr",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "America 2 free 限速3Mbps - 100M带宽",
+      "timeout": 5
+    },
+    {
+      "server": "node6.myssr.club",
+      "server_port": 443,
+      "password": "wwwmyssrclub",
+      "method": "none",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "06-日本 NTT 100M带宽",
+      "timeout": 5
+    },
+    {
+      "server": "47.74.15.66",
+      "server_port": 15395,
+      "password": "GnQ9LV",
+      "method": "rc4-md5",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "日本阿里云",
+      "timeout": 5
+    },
+    {
+      "server": "148.163.166.167",
+      "server_port": 19344,
+      "password": "41Scgf",
+      "method": "rc4-md5",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "",
+      "timeout": 5
+    },
+    {
+      "server": "40.125.165.53",
+      "server_port": 2333,
+      "password": "rW5#@RJSG3q@x9X$",
+      "method": "aes-256-cfb",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "vnet1",
+      "timeout": 5
+    },
+    {
+      "server": "40.125.208.62",
+      "server_port": 2333,
+      "password": "rW5#@RJSG3q@x9X$",
+      "method": "aes-256-cfb",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "vnet2",
+      "timeout": 5
+    },
+    {
+      "server": "139.219.60.124",
+      "server_port": 2333,
+      "password": "rW5#@RJSG3q@x9X$",
+      "method": "aes-256-cfb",
+      "plugin": "",
+      "plugin_opts": "",
+      "plugin_args": "",
+      "remarks": "devops",
+      "timeout": 5
+    }
+  ],
+  "strategy": null,
+  "index": 2,
+  "global": true,
+  "enabled": true,
+  "shareOverLan": false,
+  "isDefault": false,
+  "localPort": 1080,
+  "portableMode": true,
+  "pacUrl": null,
+  "useOnlinePac": false,
+  "secureLocalPac": true,
+  "availabilityStatistics": false,
+  "autoCheckUpdate": false,
+  "checkPreRelease": false,
+  "isVerboseLogging": false,
+  "logViewer": {
+    "topMost": false,
+    "wrapText": false,
+    "toolbarShown": false,
+    "Font": "Consolas, 8pt",
+    "BackgroundColor": "Black",
+    "TextColor": "White"
+  },
+  "proxy": {
+    "useProxy": false,
+    "proxyType": 0,
+    "proxyServer": "",
+    "proxyPort": 0,
+    "proxyTimeout": 3
+  },
+  "hotkey": {
+    "SwitchSystemProxy": "",
+    "SwitchSystemProxyMode": "",
+    "SwitchAllowLan": "",
+    "ShowLogs": "",
+    "ServerMoveUp": "",
+    "ServerMoveDown": "",
+    "RegHotkeysAtStartup": false
+  }
+}
