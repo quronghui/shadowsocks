@@ -6,6 +6,7 @@
 1. 注册github学生账号
    + 注册github学生包账号，可以领取一年左右的权限，免费使用shadowsocks
    + [学生包](https://education.github.com/pack)
+     + 重新用华科的邮箱申请成功；
 
 2. 注册注册PayPal账号
 
@@ -17,15 +18,23 @@
 3. 注册DigitalOcean账号
    + 用于管理VPN账号的
    + [注册账号](https://www.digitalocean.com/github-students/?utm_medium=partnerships&utm_source=github&utm_campaign=studentdevpack)
-   + 193@qq.com 
+     + 1939193595@qq.com 这个的钱花完了
+       + 登录后进行账号的销毁，先销毁账号，在销毁数据
+     + quronghui@hust.edu.cn 现在重新用这个搭建一个
+   + 领取优惠券并且购买
+      + 登录github student pack
 
-4. 领取优惠券并且购买
+      + 选择Digital Ocean,领取50m美元
+        + 需要支付5美元才能获得收益
 
-   + 登录github student pack
+4. 在DigitalOcean账号下购买和配置VPS
 
-   + 选择Digital Ocean,领取50m美元
+   + 点击Create Droplets建立主机。
 
-   + 购买、配置VPS --选择CentOS
+     + 选择Ubuntu或者Debian
+     + $5套餐足矣，请选择New york or San Francisco的服务器，速度比较快
+
+     ![CreatDroplets.png]{}
 
    + 记住用户名和密码
 
@@ -33,12 +42,12 @@
      - Droplet Name: ubuntu-s-1vcpu-1gb-sfo2-01
      - IP Address: 165.227.50.173
      - Username: root
-     - Password: quronghui5
+     - Password: xxx
      - "server":"165.227.50.173",  
      - "local_address":"127.0.0.1",  
            "local_port":1080,  
        "port_password":{  
-            "8096":"quronghui5",  
+            "8096":"xxx",  
        },  
        "timeout":300,  
        "method":"aes-256-gcm",  
