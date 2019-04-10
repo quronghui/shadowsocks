@@ -34,7 +34,7 @@
      + 选择Ubuntu或者Debian
      + $5套餐足矣，请选择New york or San Francisco的服务器，速度比较快
 
-     ![CreatDroplets.png]{}
+     ![CreatDroplets.png](https://github.com/quronghui/shadowsocks/blob/master/CreatDroplets.png)
 
    + 记住用户名和密码
 
