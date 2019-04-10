@@ -36,23 +36,13 @@
 
      ![CreatDroplets.png](https://github.com/quronghui/shadowsocks/blob/master/CreatDroplets.png)
 
-   + 记住用户名和密码
+   + 用户名和密码会发送到邮箱
 
      ```
-     - Droplet Name: ubuntu-s-1vcpu-1gb-sfo2-01
-     - IP Address: 165.227.50.173
-     - Username: root
-     - Password: xxx
-     - "server":"165.227.50.173",  
-     - "local_address":"127.0.0.1",  
-           "local_port":1080,  
-       "port_password":{  
-            "8096":"xxx",  
-       },  
-       "timeout":300,  
-       "method":"aes-256-gcm",  
-       "fast_open":false  
-       }  
+     Droplet Name: ubuntu-s-1vcpu-1gb-sfo2-01
+     IP Address: 104.248.176.143
+     Username: root
+     Password: 2695e93c1015ea25dfc8f5459e
      ```
 
 ## VPN账号搭建Shadowsocks 代理
@@ -60,15 +50,18 @@
 + 登录我们申请成功的IP
 
   ```
-  ssh root@IP Address: (165.227.50.173)
-  	password:quronghui5	
+  ssh root@IP Address: (104.248.176.143)	
   ```
 
   + 登陆成功后的操作界面是不同
 
-  + 操作的用户名是Digital Ocean申请的用户名
+    + 操作的用户名是Digital Ocean申请的用户名
 
-    {% asset_img sshlogin.png %}
+      {% asset_img sshlogin.png %}
+
+  + 第一次登陆需要修改密码，也就是邮件发送的密码Password: 269×××××××××××59e
+
+    ![current.png](https://github.com/quronghui/shadowsocks/blob/master/current.png)
 
 + 选其一搭建服务器
 
@@ -141,26 +134,68 @@
 
      ```
      {
-         "server":"165.227.50.173",
+         "server":"104.248.176.143",
          "server_port":8080,
-         "local_port":1080,
+         "local_address": "127.0.0.1",	// 默认的，可以不加
+         "local_port":1082,			// 1080本地端口占用时，进行修改
          "password":"quronghui",
          "timeout":300,
          "method":"aes-256-gcm",
+         "fast_open": false		// 末尾没有 ','
      }
-     // 和shadowsocks的.json文件一样
+     //server 你服务端的IP
+     servier_port 你服务端的端口
+     local_port 本地端口，一般默认1080
+     passwd ss服务端设置的密码
+     timeout 超时设置 和服务端一样
+     method 加密方法 和服务端一样
      ```
 
-3. 设置开机自启动ss客户端，连接服务器
+3. 简单链接和测试
+
+   + ```
+     sudo sslocal -c /etc/shadowsocks.json
+     ```
+
+   + 报错1：ERROR method aes-256-gcm not supported
+
+     + pypi 的 2.8.2 不支持
+
+     ```
+     pip install https://github.com/shadowsocks/shadowsocks/archive/master.zip -U
+     ```
+
+   + 报错2 
+
+     ```
+     2015-02-16 23:59:07 INFO starting local at 127.0.0.1:1080  
+     ERROR [Errno 98] Address already in use
+     ```
+
+     + 这个只是1080端口号被使用了，重新分配一个就行了，改成1082都行
+     + 当时配置的时候一直再找错误，不知道怎么回事
+
+   + 报错3 
+
+     ```
+     服务器的开启
+     	ssserver -c /etc/shadowsocks/config.json -d start
+     本地客户端的链接
+     	sslocal -c /etc/shadowsocks/config.json -d start
+     	在本地客户端这里要用sslocal
+     ```
+
+4. 设置开机自启动ss客户端，连接服务器
 
    + apt-get supervisor
+   + 在客户端下的登录是sslocal
 
    ```
    sudo apt-get install supervisor
    sudo vim /etc/supervisor/supervisord.conf、
    add:
        [program:shadowsocks]
-       command=sslocal -c /home/quronghui/shadowsocks/shadowsocks.json
+       command=sslocal -c /home/quronghui/shadowsocks/shadowsocks.json 
        autostart=true
        autorestart=true
        user=root
@@ -183,11 +218,14 @@
      	service supervisor start 
      ```
 
-   + reboot 测试是否成功
+5. **如何查看是否连接成功**
 
-     + ping 服务器的ip地址
+   ```
+   查看日志:我们在下面的配置哪里，建立了shadowsockets.log
+   	vi /var/log/shadowsockets.log
+   ```
 
-     {% asset_img pingshadowsocks.png %}
+   
 
 ## 免费的gui-config.json
 
