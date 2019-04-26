@@ -138,7 +138,7 @@
          "server_port":8080,
          "local_address": "127.0.0.1",	// 默认的，可以不加
          "local_port":1082,			// 1080本地端口占用时，进行修改
-         "password":"quronghui",
+         "password":"",
          "timeout":300,
          "method":"aes-256-gcm",
          "fast_open": false		// 末尾没有 ','
