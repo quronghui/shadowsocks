@@ -14,35 +14,30 @@
   ```
   $ ssh root@IP Address: (104.238.160.173)	
   $ sudo passwd		// 修改密码
-```
+  ```
   
 + 搭建shadowsocks服务器
 
   ```
-$ wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+  $ wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
   $ chmod +x shadowsocks.sh	// 给权限
   $ ./shadowsocks.sh 2>&1 | tee shadowsocks.log	// 选择配置
   ```
-  
-+ 搭建成功后
+
++ 搭建成功的提示  
 
   ```
   Welcome to visit:https://teddysun.com/342.html
-  Enjoy it!
+    Enjoy it!
   ```
 
-+ 基本的修改命令
-
++  基本的修改命令
   ```
   启动：/etc/init.d/shadowsocks start
   停止：/etc/init.d/shadowsocks stop
   重启：/etc/init.d/shadowsocks restart
   状态：/etc/init.d/shadowsocks status
   ```
-
-  
-
-
 ## 客户端配置
 
 ### windows 
@@ -50,35 +45,34 @@ $ wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.co
 + 下载后，打开ss客户端，按服务器端信息进行配置，配置完成后。
 + 在通知栏（一般默认隐藏到通知栏运行）找到对应的图标，右击使能代理，到此大功告成，测试google应该能正常访问了。
 
-### [ubuntu使用shadowsocks](http://tanqingbo.com/2017/07/19/Ubuntu使用shadowsocks翻墙/)
+### [ubuntu配置 shadowsocks](http://tanqingbo.com/2017/07/19/Ubuntu使用shadowsocks翻墙/)
 
 + 加入server服务器内容
 
   ```
-  {
-      "server":"104.238.160.173",
-      "server_port":9966,
-      "local_address": "127.0.0.1",
-      "local_port":1080,
-      "password":"quronghui",
-      "timeout":300,
-      "method":"aes-256-gcm",
-      "fast_open": false  
-  }
-  
-  //server 你服务端的IP
-  servier_port 你服务端的端口
-  local_port 本地端口，一般默认1080
-  passwd ss服务端设置的密码
-  timeout 超时设置 和服务端一样
-  method 加密方法 和服务端一样
+    {
+        "server":"104.238.160.173",
+        "server_port":9966,
+        "local_address": "127.0.0.1",
+        "local_port":1080,
+        "password":"quronghui",
+        "timeout":300,
+        "method":"aes-256-gcm",
+        "fast_open": false  
+    }
+    //server 你服务端的IP
+    servier_port 你服务端的端口
+    local_port 本地端口，一般默认1080
+    passwd ss服务端设置的密码
+    timeout 超时设置 和服务端一样
+    method 加密方法 和服务端一样
   ```
 
-3. 简单链接和测试
++  简单链接和测试
 
-   + ```
-     sudo sslocal -c /shadowsocks/shadowsocks.conf -d start  // stop 是停止的命令
-     ```
+  ```
+$ sudo sslocal -c /shadowsocks/shadowsocks.conf -d start  // stop 是停止的命令
+  ```
 
    + 报错1：ERROR method aes-256-gcm not supported
 
@@ -156,11 +150,11 @@ $ wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.co
 
    + 先设置成全局代理; 然后在在chrome扩展中搜索安装;
 
-   ![全局代理设置]()
+   ![全局代理设置](https://github.com/quronghui/shadowsocks/blob/master/proxy全局代理.png)
 
    + [或者在github上下载](https://github.com/XX-net/XX-Net/tree/master/SwitchyOmega)
 
 2. 配置SwitchyOmega 中的proxy: 实现PAC代理
 
-   ![配置proxy]()
+   ![配置proxy](https://github.com/quronghui/shadowsocks/blob/master/proxy_PAC代理.png)
 
