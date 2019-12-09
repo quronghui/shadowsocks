@@ -1,82 +1,29 @@
-# By github student pack build VPN
-+ [总过程](http://tzaiyang.me/Free-Unlimited-Internet-Access-For-CERNET-Users/)
+# Shadowsocks
 
-## VPN账号的申请
++ 自己搭建的服务器容易被封了;
++ 可以使用 hostwinds 或者 淘宝上购买账户;
 
-1. 注册github学生账号
-   + 注册github学生包账号，可以领取一年左右的权限，免费使用shadowsocks
-   + [学生包](https://education.github.com/pack)
-     + 重新用华科的邮箱申请成功；
+## [vultr 服务器的购买](https://github.com/wistbean/vpn)
 
-2. 注册注册PayPal账号
+1. 购买服务器:获取服务器的ip和密码
 
-   + 注册个购买账户，需要用到身份证等信息，绑定一张能开网银的银行卡
-   + 用于给服务器VPN缴费
-
-   + [paypal官网](https://www.paypal.com/c2/webapps/mpp/home?locale.x=zh_c2)
-
-3. 注册DigitalOcean账号
-   + 用于管理VPN账号的
-   + [注册账号](https://www.digitalocean.com/github-students/?utm_medium=partnerships&utm_source=github&utm_campaign=studentdevpack)
-     + 1939193595@qq.com 这个的钱花完了
-       + 登录后进行账号的销毁，先销毁账号，在销毁数据
-     + quronghui@hust.edu.cn 现在重新用这个搭建一个
-   + 领取优惠券并且购买
-      + 登录github student pack
-
-      + 选择Digital Ocean,领取50m美元
-        + 需要支付5美元才能获得收益
-
-4. 在DigitalOcean账号下购买和配置VPS
-
-   + 点击Create Droplets建立主机。
-
-     + 选择Ubuntu或者Debian
-     + $5套餐足矣，请选择New york or San Francisco的服务器，速度比较快
-
-     ![CreatDroplets.png](https://github.com/quronghui/shadowsocks/blob/master/CreatDroplets.png)
-
-   + 用户名和密码会发送到邮箱
-
-     ```
-     Droplet Name: ubuntu-s-1vcpu-1gb-sfo2-01
-     IP Address: 104.248.176.143
-     Username: root
-     Password: 2695e93c1015ea25dfc8f5459e
-     ```
-
-## VPN账号搭建Shadowsocks 代理
+## 服务器端配置
 
 + 登录我们申请成功的IP
 
   ```
-  ssh root@IP Address: (104.248.176.143)	
+  $ ssh root@IP Address: (104.238.160.173)	
+  $ sudo passwd		// 修改密码
+```
+  
++ 搭建shadowsocks服务器
+
   ```
-
-  + 登陆成功后的操作界面是不同
-
-    + 操作的用户名是Digital Ocean申请的用户名
-
-      {% asset_img sshlogin.png %}
-
-  + 第一次登陆需要修改密码，也就是邮件发送的密码Password: 269×××××××××××59e
-
-    ![current.png](https://github.com/quronghui/shadowsocks/blob/master/current.png)
-
-+ 选其一搭建服务器
-
-  + [一键搭建](https://teddysun.com/342.html)
-
-    ```
-    wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
-    chmod +x shadowsocks.sh
-    ./shadowsocks.sh 2>&1 | tee shadowsocks.log
-    ```
-
-  + [linux下的优化](https://www.polarxiong.com/archives/Ubuntu-16-04%E4%B8%8BShadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BC%98%E5%8C%96.html)
-
-  + 选用的是 **一键搭建**，ubuntu上搭建远程服务器，本地电脑通过shadowsocks进行联网
-
+$ wget --no-check-certificate -O shadowsocks.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+  $ chmod +x shadowsocks.sh	// 给权限
+  $ ./shadowsocks.sh 2>&1 | tee shadowsocks.log	// 选择配置
+  ```
+  
 + 搭建成功后
 
   ```
@@ -93,68 +40,44 @@
   状态：/etc/init.d/shadowsocks status
   ```
 
-+ 开机自启动的设置
+  
 
-  ```
-  sudo vim /etc/init.d/rc.local	//这个文件自己创建的
-  add : /etc/init.d/shadowsocks start
-  ```
 
-+ reboot 测试
-
-  ```
-  状态：/etc/init.d/shadowsocks status
-  ```
-
-## 本地搭建shadowsock 客户端
+## 客户端配置
 
 ### windows 
 
 + 下载后，打开ss客户端，按服务器端信息进行配置，配置完成后。
 + 在通知栏（一般默认隐藏到通知栏运行）找到对应的图标，右击使能代理，到此大功告成，测试google应该能正常访问了。
 
-### Linux 
+### [ubuntu使用shadowsocks](http://tanqingbo.com/2017/07/19/Ubuntu使用shadowsocks翻墙/)
 
-1. 安装shadowsocks客户端:
++ 加入server服务器内容
 
-   ```
-   sudo apt install shadowsocks
-   sslocal 		//查看是否安装成功
-   ```
-
-2. 配置连接
-
-   + 建立一个shadowsocksjson文件
-
-     ```
-     vim /home/quronghui/shadowsocks/shadowsocks.json	//路径任选
-     ```
-
-   + 加入server服务器内容
-
-     ```
-     {
-         "server":"104.248.176.143",
-         "server_port":8080,
-         "local_address": "127.0.0.1",	// 默认的，可以不加
-         "local_port":1082,			// 1080本地端口占用时，进行修改
-         "password":"",
-         "timeout":300,
-         "method":"aes-256-gcm",
-         "fast_open": false		// 末尾没有 ','
-     }
-     //server 你服务端的IP
-     servier_port 你服务端的端口
-     local_port 本地端口，一般默认1080
-     passwd ss服务端设置的密码
-     timeout 超时设置 和服务端一样
-     method 加密方法 和服务端一样
-     ```
+  ```
+  {
+      "server":"104.238.160.173",
+      "server_port":9966,
+      "local_address": "127.0.0.1",
+      "local_port":1080,
+      "password":"quronghui",
+      "timeout":300,
+      "method":"aes-256-gcm",
+      "fast_open": false  
+  }
+  
+  //server 你服务端的IP
+  servier_port 你服务端的端口
+  local_port 本地端口，一般默认1080
+  passwd ss服务端设置的密码
+  timeout 超时设置 和服务端一样
+  method 加密方法 和服务端一样
+  ```
 
 3. 简单链接和测试
 
    + ```
-     sudo sslocal -c /etc/shadowsocks.json
+     sudo sslocal -c /shadowsocks/shadowsocks.conf -d start  // stop 是停止的命令
      ```
 
    + 报错1：ERROR method aes-256-gcm not supported
@@ -227,8 +150,17 @@
 
    
 
-## 免费的gui-config.json
+## 配置chrome浏览器
 
-1. windows下我是可以找到配置文件
-   + 将原来的gui-config.json文件，用free-gui-config.json替换就行。
-2. ubuntu下的配置文件我没有找到confi
+1. 如果在chrome的扩展中添加不了Proxy SwitchyOmega?
+
+   + 先设置成全局代理; 然后在在chrome扩展中搜索安装;
+
+   ![全局代理设置]()
+
+   + [或者在github上下载](https://github.com/XX-net/XX-Net/tree/master/SwitchyOmega)
+
+2. 配置SwitchyOmega 中的proxy: 实现PAC代理
+
+   ![配置proxy]()
+
